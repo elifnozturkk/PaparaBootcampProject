@@ -47,7 +47,6 @@ namespace PaparaApp.Project.API.Controllers
 
 
         [HttpDelete("{id}")]
-        [Route("delete")]
         [Authorize(Roles = "Manager")]
         public IActionResult Delete(Guid id)
         {

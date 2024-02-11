@@ -82,13 +82,6 @@ builder.Services.AddHostedService<OverduePaymentsBackgroundService>();
 
 var app = builder.Build();
 
-//using (var scope = app.Services.CreateScope())
-//{
-//    var services = scope.ServiceProvider;
-//    var userManager = services.GetRequiredService<UserManager<AppUser>>();
-//    var roleManager = services.GetRequiredService<RoleManager<AppRole>>();
-//    await ManagerDataSeeder.SeedManagerUserAsync(userManager, roleManager);
-//}
 
 
 if (app.Environment.IsDevelopment())
@@ -107,3 +100,10 @@ app.MapControllers();
 
 app.Run();
 
+using (var scope = app.Services.CreateScope())
+{
+    var services = scope.ServiceProvider;
+    var userManager = services.GetRequiredService<UserManager<AppUser>>();
+    var roleManager = services.GetRequiredService<RoleManager<AppRole>>();
+    await ManagerDataSeeder.SeedManagerUserAsync(userManager, roleManager);
+}
