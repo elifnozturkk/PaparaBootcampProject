@@ -1,0 +1,6 @@
+@PaparaBootcampProject_HostAddress = http://localhost:5204
+
+GET {{PaparaBootcampProject_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
